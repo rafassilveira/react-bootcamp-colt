@@ -1,35 +1,43 @@
-import React,{Component} from 'react'
-import Pokecard from './Pokecard'
-import elements from './pokemonList'
-import './Pokedex.css'
+import React, { Component } from "react";
+import Pokecard from "./Pokecard";
+import pokemons from "./pokemonList";
+import "./Pokedex.css";
 
-class Pokedex extends Component{
+class Pokedex extends Component {
+	render() {
+		function random(arr) {
+			return arr[Math.floor(Math.random() * arr.length)];
+		}
 
-	
-	render(){
-	function fixId(id){
-	if(id<10){
-		return '00'+id
-	}else if(id <100){
-		return '0'+id
-	}else{
-		return id
+		return (
+			<div className="Pokedex">
+				<Pokecard
+					name={random(pokemons).name}
+					type={random(pokemons).type}
+					id={random(pokemons).id}
+					base_experience={random(pokemons).base_experience}
+				/>
+				<Pokecard
+					name={random(pokemons).name}
+					type={random(pokemons).type}
+					id={random(pokemons).id}
+					base_experience={random(pokemons).base_experience}
+				/>
+				<Pokecard
+					name={random(pokemons).name}
+					type={random(pokemons).type}
+					id={random(pokemons).id}
+					base_experience={random(pokemons).base_experience}
+				/>
+				<Pokecard
+					name={random(pokemons).name}
+					type={random(pokemons).type}
+					id={random(pokemons).id}
+					base_experience={random(pokemons).base_experience}
+				/>
+			</div>
+		);
 	}
 }
-		return(
-		<div className="Pokedex">
-		  
-      {elements.map((value, index) => {
-        return <p key={index}>
-				<Pokecard name={value.name} type={value.type} id={Number(fixId(value.id))} base_experience={value.base_experience}/>
-				</p>
-      })}
-			
-				
-		</div>
-		) 
-		
-	}
-}
 
-export default Pokedex
+export default Pokedex;
