@@ -19,12 +19,13 @@ class Pokecard extends Component {
 				return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`;
 			}
 		}
+		const {name,id,type,base_experience}= this.props
 		return (
 			<div className="Pokecard">
-				<p>{this.props.name}</p>
-				<img src={fixId(this.props.id)} alt={this.props.name} />
-				<p>Type:{this.props.type}</p>
-				<p>EXP:{this.props.base_experience}</p>
+				<p className="Pokecard-title">{name}</p>
+				<img className="Pokecard-image" src={fixId(id)} alt={name} />
+				<p>Type:{type}</p>
+				<p>EXP:{base_experience}</p>
 			</div>
 		);
 	}

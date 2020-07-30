@@ -1,7 +1,14 @@
-.Pokedex{
+.Pokedex-cards{
 	display:grid;
-	grid-template-columns:1fr 1fr 1fr 1fr;
-	width:80%;
-	margin: 10px auto;
+	grid-template-columns:300px 300px 300px 300px;
+	width:50%;
+	
 	grid-gap:20px
+}
+.Pokedex-winner {
+	color: #4caf50;
+}
+
+.Pokedex-loser {
+	color: #e91e63;
 }

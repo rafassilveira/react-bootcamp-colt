@@ -1,40 +1,24 @@
 import React, { Component } from "react";
 import Pokecard from "./Pokecard";
-import pokemons from "./pokemonList";
 import "./Pokedex.css";
 
 class Pokedex extends Component {
 	render() {
-		function random(arr) {
-			return arr[Math.floor(Math.random() * arr.length)];
-		}
-
+		let title;
+		if(this.props.isWinner){
+			 title = <h1 className="Pokedex-winner">Winning Hand</h1>;
+			 }else{
+				 title = <h1 className="Pokedex-loser">Losing Hand</h1>;
+			 }
 		return (
 			<div className="Pokedex">
-				<Pokecard
-					name={random(pokemons).name}
-					type={random(pokemons).type}
-					id={random(pokemons).id}
-					base_experience={random(pokemons).base_experience}
-				/>
-				<Pokecard
-					name={random(pokemons).name}
-					type={random(pokemons).type}
-					id={random(pokemons).id}
-					base_experience={random(pokemons).base_experience}
-				/>
-				<Pokecard
-					name={random(pokemons).name}
-					type={random(pokemons).type}
-					id={random(pokemons).id}
-					base_experience={random(pokemons).base_experience}
-				/>
-				<Pokecard
-					name={random(pokemons).name}
-					type={random(pokemons).type}
-					id={random(pokemons).id}
-					base_experience={random(pokemons).base_experience}
-				/>
+				{title}
+				<h4>Total Experience: {this.props.exp}</h4>
+				<div className="Pokedex-cards">
+					{this.props.pokemon.map((p) => (
+						<Pokecard id={p.id} name={p.name} type={p.type} exp={p.base_experience} />
+					))}
+				</div>
 			</div>
 		);
 	}
